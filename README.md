@@ -14,37 +14,37 @@ The dataset used for analysis is a publicly available Apache logs dataset from:
 ## 🗂️ Project Structure
 ```bash
 log-analysis/
-├── Dockerfile                          # Docker image configuration
-├── requirements.txt                   # Python dependencies
-├── README.md                           # Project documentation
-├── main.py                             # Main entry point of the application
-├── store/                              # Folder containing data files
-│   └── access_log_data.txt             # Sample Apache log file for analysis
-└── src/                                # Source code directory
-    ├── databricks/                     # Databricks specific code
-    │   └── log_analysis_databricks.dbc # Databricks notebook for log analysis
-    ├── dash/                           # Dash specific code for interactive visualization
-    │   ├── __init__.py                 # Initialization for the Dash app
-    │   ├── data_analysis.py            # Data analysis logic
-    │   ├── data_loader.py              # Data loading logic
-    │   ├── log_parser.py               # Log parsing logic
-    │   └── visualization.py            # Visualization logic for Dash app
+├── Dockerfile                           # Docker image configuration
+├── requirements.txt                     # Python dependencies
+├── README.md                            # Project documentation
+├── main.py                              # Main entry point of the application
+├── store/                               # Folder containing data files
+│   └── access_log_data.txt              # Sample Apache log file for analysis
+└── src/                                 # Source code directory
+    ├── databricks/                      # Databricks specific code
+    │   └── log_analysis_databricks.dbc  # Databricks notebook for log analysis
+    │   └── log_analysis_databricks.html # Databricks notebook for log analysis
+    ├── dash/                            # Dash specific code for interactive visualization
+    │   ├── data_analysis.py             # Data analysis logic
+    │   ├── data_loader.py               # Data loading logic
+    │   ├── log_parser.py                # Log parsing logic
+    │   └── visualization.py             # Visualization logic for Dash app
 ```
 
 ## 🚀 Running the Application with Docker
 
 1. **Clone the repository**:  
 ```bash
-git clone https://github.com/kamil-scp/log-analysis.git
-cd log-analysis
+git clone https://github.com/kamil-scp/log_analysis
+cd log_analysis
 ```
 Build the Docker image:
 ```bash
-docker build -t log-analysis .
+docker build -t log_analysis .
 ```
 Run the container:
 ```bash
-docker run -p 8050:8050 log-analysis
+docker run -p 8050:8050 log_analysis
 ```
 The application will be available at:
 http://localhost:8050
@@ -56,18 +56,16 @@ http://localhost:8050
 2. Log in and navigate to the **Clusters** section in the left menu.
 
 3. Click **Create Cluster** and configure it as follows:
-    - Cluster Name: `log-analysis-cluster`
-    - Databricks Runtime Version: `11.x (Scala 2.12, Spark 3.4.x)`
-    - Worker Type: `Standard_DS3_v2` (or similar)
-    - Number of Workers: 1-2
+    - Cluster Name: `log_analysis_cluster`
+    - Databricks Runtime Version: `12.2 LTS (includes Apache Spark 3.3.2, Scala 2.12)`
     - Click **Create Cluster**
 
-4. Go to the **Workspace** section and create a new folder, e.g., `log-analysis`.
+4. Go to the **Workspace** section and create a new folder, e.g., `log_analysis`.
 
-5. Click on the three dots next to the `log-analysis` folder and choose **Import**.
+5. Click on the three dots next to the `log_analysis` folder and choose **Import**.
 
 6. Select the notebook file from the repository or paste the URL:
-    - `https://github.com/kamil-scp/log-analysis/notebook/log_analysis_databricks.dbc`
+    - `https://github.com/kamil-scp/log_analysis/blob/main/src/databricks/log_analysis_databricks.dbc`
 
 7. Click **Import**.
 
@@ -99,4 +97,4 @@ It includes bar charts, line charts, and an option to export data.
 
 - Python 3.8+
 
-- Databricks Community Edition (for cloud analysis)
+dd- Databricks Community Edition (for cloud analysis)
