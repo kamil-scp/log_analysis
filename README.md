@@ -97,4 +97,4 @@ It includes bar charts, line charts, and an option to export data.
 
 - Python 3.8+
 
-dd- Databricks Community Edition (for cloud analysis)
+- Databricks Community Edition (for cloud analysis)
